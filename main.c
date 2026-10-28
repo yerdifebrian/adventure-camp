@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define N 5      /* jumlah jenis alat */
-#define MAX 10   /* kapasitas riwayat */
+#define N 5     
+#define MAX 10  
 
 const char *alat[N] = {"Tenda Kapasitas 4 Orang", "Sleeping Bag", "Kompor Portable", "Matras Camping", "Lampu Camping"};
 const int harga[N] = {50000, 15000, 20000, 10000, 12000};

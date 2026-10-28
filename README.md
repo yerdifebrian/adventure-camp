@@ -2,7 +2,6 @@
 - Nama: Yerdi Febriansyah Alfaruqi
 - NIM: C2583207016
 - Nama Projek: Adventure Camp
-- 
 - ## Deskripsi Program
 Adventure Camp adalah aplikasi berbasis console yang dibuat dengan bahasa C
 untuk membantu pencatatan penyewaan peralatan camping. Program menghitung

@@ -1,16 +1,12 @@
-/* Adventure Camp - Sistem Penyewaan Peralatan Camping
-   Nama: <isi nama>  NIM: <isi NIM> */
 #include <stdio.h>
 #include <stdlib.h>
 
 #define N 5      /* jumlah jenis alat */
 #define MAX 10   /* kapasitas riwayat */
 
-const char *alat[N] = {"Tenda Kapasitas 4 Orang", "Sleeping Bag", "Kompor Portable",
-                       "Matras Camping", "Lampu Camping"};
+const char *alat[N] = {"Tenda Kapasitas 4 Orang", "Sleeping Bag", "Kompor Portable", "Matras Camping", "Lampu Camping"};
 const int harga[N] = {50000, 15000, 20000, 10000, 12000};
 
-/* riwayat transaksi: satu array per kategori data */
 char rNama[MAX][50];
 int rAlat[MAX], rJumlah[MAX], rLama[MAX];
 long long rTotal[MAX];
@@ -24,7 +20,7 @@ int bacaInt(const char *teks, int min, int max) {
         printf("%s", teks);
         ok = scanf("%d", &x);
         if (ok == EOF) exit(0);
-        while ((c = getchar()) != '\n' && c != EOF);   /* buang sisa baris */
+        while ((c = getchar()) != '\n' && c != EOF);
         if (ok == 1 && x >= min && x <= max) return x;
         printf("Input tidak valid! Masukkan angka %d-%d.\n", min, max);
     }
@@ -45,7 +41,6 @@ void tampilDaftar(void) {
     garis('=');
 }
 
-/* return 0 jika pengguna memilih keluar (T), 1 jika kembali ke menu */
 int sewa(void) {
     char nama[50], yt;
     int pilih, jumlah, lama, p;
@@ -54,7 +49,7 @@ int sewa(void) {
     if (jml >= MAX) { printf("Kapasitas transaksi penuh, transaksi baru ditolak.\n"); return 1; }
 
     printf("Nama penyewa : ");
-    scanf(" %49[^\n]", nama);                       /* spasi di depan: lewati enter/spasi kosong */
+    scanf(" %49[^\n]", nama);                       
     tampilDaftar();
     pilih  = bacaInt("Pilih peralatan [1-5] : ", 1, N) - 1;
     jumlah = bacaInt("Jumlah unit           : ", 1, 1000);
@@ -65,7 +60,6 @@ int sewa(void) {
     dis = sub * p / 100;
     total = sub - dis;
 
-    /* simpan ke riwayat */
     snprintf(rNama[jml], 50, "%s", nama);
     rAlat[jml] = pilih; rJumlah[jml] = jumlah; rLama[jml] = lama; rTotal[jml] = total;
     jml++;
